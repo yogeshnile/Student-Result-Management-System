@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!--===============================================================================================-->
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<!--===============================================================================================-->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" media="screen" >
+        <!--===============================================================================================-->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}" media="screen" >
+        <!--===============================================================================================-->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/animate-css/animate.min.css') }}" media="screen" >
+        <!--===============================================================================================-->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/lobipanel/lobipanel.min.css') }}" media="screen" >
+        <!--===============================================================================================-->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/prism/prism.css') }}" media="screen" >
+        <!--===============================================================================================-->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main2.css') }}" media="screen" >
+        <!--===============================================================================================-->
+        <script src="{{ url_for('static', filename='js/modernizr/modernizr.min.js') }}"></script>
+        <!--===============================================================================================-->
+	<title>result || Yogesh Nile</title>
+</head>
+   <body>
+        <div class="main-wrapper">
+            <div class="content-wrapper">
+                <div class="content-container">
+
+         
+                    <!-- /.left-sidebar -->
+
+                    <div class="main-page">
+                        <div class="container-fluid">
+                            <div class="row page-title-div">
+                                <div class="col-md-12">
+                                    <h2 class="title" align="center">Vimal Tormal Poddar BCA College, Pandesara Surat</h2>
+                                </div>
+                            </div>
+                            <!-- /.row -->
+                          
+                            <!-- /.row -->
+                        </div>
+                        <!-- /.container-fluid -->
+
+                        <section class="section" id="exampl">
+                            <div class="container-fluid">
+
+                                <div class="row">
+                              
+                             
+
+                                    <div class="col-md-8 col-md-offset-2">
+                                        <div class="panel">
+                                            <div class="panel-heading">
+                                                <div class="panel-title">
+                                                    <h3 align="center">Student Result Details</h3>
+                                                    <hr />
+
+<p><b>Student Name : </b>{{ result.st_name }}</p>
+<p><b>Student Roll No :</b> {{ result.roll_no }}
+<p><b>Student Enrollment No:</b> {{ result.enrollment_no }}
+                                            </div>
+    <div class="panel-body p-20">
+    <table class="table table-hover table-bordered" border="1" width="100%">
+        <thead>
+            <tr style="text-align: center">
+            	<th style="text-align: center">#</th>
+           		<th style="text-align: center"> Subject</th>    
+            	<th style="text-align: center">Marks</th>
+         	</tr>
+        </thead>
+                             	
+       	<tbody>
+       		<!-- ====================1st Subject =====================-->
+       		<tr>
+				<th scope="row" style="text-align: center">1</th>
+				<td style="text-align: center">Information System</td>
+				<td style="text-align: center">85</td>
+       		</tr>
+       		<!-- ====================2nd Subject =====================-->
+       		<tr>
+				<th scope="row" style="text-align: center">2</th>
+				<td style="text-align: center">Software Enginring-2</td>
+				<td style="text-align: center">85</td>
+       		</tr>
+       		<!-- ====================3rd Subject =====================-->
+       		<tr>
+				<th scope="row" style="text-align: center">3</th>
+				<td style="text-align: center">Java</td>
+				<td style="text-align: center">85</td>
+       		</tr>
+       		<!-- ====================4th Subject =====================-->
+       		<tr>
+				<th scope="row" style="text-align: center">4</th>
+				<td style="text-align: center">.Net Programming</td>
+				<td style="text-align: center">85</td>
+       		</tr>
+       		<!-- ====================5th Subject =====================-->
+       		<tr>
+				<th scope="row" style="text-align: center">5</th>
+				<td style="text-align: center">Web Desing</td>
+				<td style="text-align: center">85</td>
+       		</tr>
+       		<!-- ====================6th Subject =====================-->
+       		<tr>
+				<th scope="row" style="text-align: center">6</th>
+				<td style="text-align: center">Practical</td>
+				<td style="text-align: center">85</td>
+       		</tr>
+       		<!-- ====================Subject End =====================-->
+
+			<tr>
+				<th scope="row" colspan="2" style="text-align: center">Total Marks</th>
+				<td style="text-align: center"><b> total</b> out of <b>700</b></td>
+            </tr>
+			
+			<tr>
+				<th scope="row" colspan="2" style="text-align: center">Percntage</th>           
+				<td style="text-align: center"><b> %</b></td>
+			</tr>
+
+			<tr>
+				<th scope="row" colspan="2" style="text-align: center">Result</th>           
+				<td style="text-align: center"><b> Pass</b></td>
+			</tr>
+
+			<tr>
+                              
+				<td colspan="3" align="center"><i class="fa fa-print fa-2x" aria-hidden="true" style="cursor:pointer" OnClick="CallPrint(this.value)" >print</i></td>
+    		</tr>
+
+ <!--   
+<div class="alert alert-warning left-icon-alert" role="alert">
+     <strong>Notice!</strong> Your result not declare yet
+
+   </div> -->
+ 
+        </tbody>
+    </table>
+
+        </div>
+        </div>
+       <!-- /.panel -->
+    </div>
+ <!-- /.col-md-6 -->
+
+    <div class="form-group">
+                                                        
+        <div class="col-sm-6">
+            <a href="/">Back to Home</a>
+        </div>
+    </div>
+
+                                </div>
+                                <!-- /.row -->
+  
+                            </div>
+                            <!-- /.container-fluid -->
+                        </section>
+                        <!-- /.section -->
+
+                    </div>
+                    <!-- /.main-page -->
+
+                  
+                </div>
+                <!-- /.content-container -->
+            </div>
+            <!-- /.content-wrapper -->
+
+        </div>
+        <!-- /.main-wrapper -->
+
+        <!-- ========== COMMON JS FILES ========== -->
+        <script src="{{ url_for('static', filename='js/jquery/jquery-2.2.4.min.js') }}"></script>
+        <!--===============================================================================================-->
+        <script src="{{ url_for('static', filename='js/bootstrap/bootstrap.min.js') }}"></script>
+        <!--===============================================================================================-->
+        <script src="{{ url_for('static', filename='js/pace/pace.min.js') }}"></script>
+        <!--===============================================================================================-->
+        <script src="{{ url_for('static', filename='js/lobipanel/lobipanel.min.js') }}"></script>
+        <!--===============================================================================================-->
+        <script src="{{ url_for('static', filename='js/iscroll/iscroll.js') }}"></script>
+        <!--===============================================================================================-->
+
+        <!-- ========== PAGE JS FILES ========== -->
+        <script src="{{ url_for('static', filename='js/prism/prism.js') }}"></script>
+
+        <!-- ========== THEME JS ========== -->
+        <script src="{{ url_for('static', filename='js/main2.js') }}"></script>
+
+        <!--============================= Page print script===================================-->
+        <script>
+            $(function($) {
+
+            });
+
+
+            function CallPrint(strid) {
+var prtContent = document.getElementById("exampl");
+var WinPrint = window.open('', '', 'left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0');
+WinPrint.document.write(prtContent.innerHTML);
+WinPrint.document.close();
+WinPrint.focus();
+WinPrint.print();
+WinPrint.close();
+}
+</script>
+<!--============================= Page print script end =========================================-->
+
+        </script>
+
+        <!-- ========== ADD custom.js FILE BELOW WITH YOUR CHANGES ========== -->
+
+    </body>
+</html>

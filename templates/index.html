@@ -34,7 +34,7 @@
 		<div class="wrap-contact100">
 
 
-			<form class="contact100-form validate-form">
+			<form class="contact100-form validate-form" method="post" name="result_search" action="/result">
 				<span class="contact100-form-title">
 					Result
 				</span>
@@ -42,7 +42,7 @@
 				<div class="wrap-input100 input100-select bg1">
 					<span class="label-input100">Choose Year *</span>
 					<div>
-						<select class="js-select2" name="service">
+						<select class="js-select2" name="year">
 							<option>Please choose Year</option>
 							<option>1st Year</option>
 							<option>2nd Year</option>
@@ -54,51 +54,8 @@
 
 				<div class="wrap-input100 validate-input bg1" data-validate="Please Type Your Roll No.">
 					<span class="label-input100">Roll No *</span>
-					<input class="input100" type="text" name="name" placeholder="Enter Your Roll No.">
+					<input class="input100" type="text" name="roll_no" placeholder="Enter Your Roll No.">
 				</div>
-
-				<div class="w-full dis-none js-show-service">
-					<div class="wrap-contact100-form-radio">
-						<span class="label-input100">What type of products do you sell?</span>
-
-						<div class="contact100-form-radio m-t-15">
-							<input class="input-radio100" id="radio1" type="radio" name="type-product" value="physical" checked="checked">
-							<label class="label-radio100" for="radio1">
-								Phycical Products
-							</label>
-						</div>
-
-						<div class="contact100-form-radio">
-							<input class="input-radio100" id="radio2" type="radio" name="type-product" value="digital">
-							<label class="label-radio100" for="radio2">
-								Digital Products
-							</label>
-						</div>
-
-						<div class="contact100-form-radio">
-							<input class="input-radio100" id="radio3" type="radio" name="type-product" value="service">
-							<label class="label-radio100" for="radio3">
-								Services Consulting
-							</label>
-						</div>
-					</div>
-
-					<div class="wrap-contact100-form-range">
-						<span class="label-input100">Budget *</span>
-
-						<div class="contact100-form-range-value">
-							$<span id="value-lower">610</span> - $<span id="value-upper">980</span>
-							<input type="text" name="from-value">
-							<input type="text" name="to-value">
-						</div>
-
-						<div class="contact100-form-range-bar">
-							<div id="filter-bar"></div>
-						</div>
-					</div>
-				</div>
-
-				
 
 				<div class="container-contact100-form-btn">
 					<button class="contact100-form-btn">
@@ -139,29 +96,7 @@
 	<script src="{{ url_for('static', filename='index/vendor/countdowntime/countdowntime.js') }}"></script>
 <!--===============================================================================================-->
 	<script src="{{ url_for('static', filename='index/vendor/noui/nouislider.min.js') }}"></script>
-	<script>
-	    var filterBar = document.getElementById('filter-bar');
-
-	    noUiSlider.create(filterBar, {
-	        start: [ 1500, 3900 ],
-	        connect: true,
-	        range: {
-	            'min': 1500,
-	            'max': 7500
-	        }
-	    });
-
-	    var skipValues = [
-	    document.getElementById('value-lower'),
-	    document.getElementById('value-upper')
-	    ];
-
-	    filterBar.noUiSlider.on('update', function( values, handle ) {
-	        skipValues[handle].innerHTML = Math.round(values[handle]);
-	        $('.contact100-form-range-value input[name="from-value"]').val($('#value-lower').html());
-	        $('.contact100-form-range-value input[name="to-value"]').val($('#value-upper').html());
-	    });
-	</script>
+	
 <!--===============================================================================================-->
 	<script src="{{ url_for('static', filename='index/js/main.js') }}"></script>
 
