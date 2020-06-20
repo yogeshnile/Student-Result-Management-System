@@ -3,11 +3,7 @@
     {
         "local_server":"True",
         "local_uri":"mysql+pymysql://root:@localhost/srms",
-        "prod_uri":"mysql+pymysql://root:@localhost/srms",
-        "admin-user":"yogesh",
-        "admin-pass":"hello",
-        "upload_location":"/home/yogesh/Documents/Flask/static/img"
-
+        "prod_uri":"mysql+pymysql://root:@localhost/srms"
     }
 
 }
