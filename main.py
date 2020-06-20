@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, session, redirect
+from flask import Flask, render_template, request, session, redirect, flash
 from flask_sqlalchemy import SQLAlchemy
 import json
 import pymysql
@@ -77,8 +77,6 @@ def result():
     if(request.method == 'POST'):
         year = request.form.get('year')
         rollno = request.form.get('roll_no')
-        
-        error = "Result not declare yet"
 
         def passing(result_st):
             st_total = result_st.sub1 + result_st.sub2 + result_st.sub3 + result_st.sub4 + result_st.sub5 + result_st.sub6
@@ -90,12 +88,13 @@ def result():
                 return "PASS", st_grade, st_total
 
         if year == "Please choose Year" or rollno == '0':
+            flash('Invalid Input')
             return redirect('/')
         elif year == "1st Year":
             result_st = First_year.query.filter_by(roll_no=rollno).first()
             if not result_st:
-                sub = Subject.query.filter_by(semester=0).first()
-                return render_template('result.html', error = error, result = result_st, sub = sub)
+                flash(f'Roll no:- {rollno} Result has not published yet.')
+                return redirect('/')
             else:
                 if result_st.semester == 1:
                     sub = Subject.query.filter_by(semester=1).first()
@@ -109,8 +108,8 @@ def result():
         elif year == "2nd Year":
             result_st = Second_year.query.filter_by(roll_no=rollno).first()
             if not result_st:
-                sub = Subject.query.filter_by(semester=0).first()
-                return render_template('result.html', error = error, result = result_st, sub = sub)
+                flash(f'Roll no:- {rollno} Result has not published yet.')
+                return redirect('/')
             else:
                 if result_st.semester == 3:
                     sub = Subject.query.filter_by(semester=3).first()
@@ -124,8 +123,8 @@ def result():
         elif year == "3rd Year":
             result_st = Third_year.query.filter_by(roll_no=rollno).first()
             if not result_st:
-                sub = Subject.query.filter_by(semester=0).first()
-                return render_template('result.html', error = error, result = result_st, sub = sub)
+                flash(f'Roll no:- {rollno} Result has not published yet.')
+                return redirect('/')
             else:
                 if result_st.semester == 5:
                     sub = Subject.query.filter_by(semester=5).first()
