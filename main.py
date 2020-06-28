@@ -16,8 +16,8 @@ db = SQLAlchemy(app)
 
 class Admin(db.Model):
     #==========Admin Table Data ====================
-    admin_name = db.Column(db.String(20), primary_key=True)
-    pass_word = db.Column(db.String(20), nullable=False)
+    t_username = db.Column(db.String(20), primary_key=True)
+    t_password = db.Column(db.String(20), nullable=False)
 
 class First_year(db.Model):
     #============first year table data ==================
@@ -94,7 +94,7 @@ def result():
             result_st = First_year.query.filter_by(roll_no=rollno).first()
             if not result_st:
                 flash(f'Roll no:- {rollno} Result has not published yet.')
-                return redirect('/')
+                return redirect('/404')
             else:
                 if result_st.semester == 1:
                     sub = Subject.query.filter_by(semester=1).first()
@@ -109,7 +109,7 @@ def result():
             result_st = Second_year.query.filter_by(roll_no=rollno).first()
             if not result_st:
                 flash(f'Roll no:- {rollno} Result has not published yet.')
-                return redirect('/')
+                return redirect('/404')
             else:
                 if result_st.semester == 3:
                     sub = Subject.query.filter_by(semester=3).first()
@@ -124,7 +124,7 @@ def result():
             result_st = Third_year.query.filter_by(roll_no=rollno).first()
             if not result_st:
                 flash(f'Roll no:- {rollno} Result has not published yet.')
-                return redirect('/')
+                return redirect('/404')
             else:
                 if result_st.semester == 5:
                     sub = Subject.query.filter_by(semester=5).first()
@@ -136,12 +136,32 @@ def result():
     else:
         return render_template('index.html')
 
-@app.route('/dashboard')
+@app.route('/dashboard', methods=['GET','POST'])
 def dashboard():
-    return render_template('login.html')
+    if ('user' in session and session['user'] == 'admin'):
+        return render_template('dashboard.html')
+
+    if request.method == 'POST':
+        username = request.form.get('username')
+        userpass = request.form.get('pass')
+        admin = Admin.query.filter_by(t_username = username).first()
+        if (username == admin.t_username and userpass == admin.t_password):
+            session['user'] = username
+            return render_template('dashboard.html')
+    else:
+        return render_template('login.html')
+
+@app.route('/logout')
+def logout():
+    session.pop('user')
+    return redirect('/dashboard')
 
 @app.route('/')
 def home():
     return render_template('index.html')
+
+@app.route('/404')
+def not_found():
+    return render_template('404.html')
 
 app.run(debug=True)
