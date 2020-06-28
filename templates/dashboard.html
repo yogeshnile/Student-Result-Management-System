@@ -52,16 +52,10 @@
             <h1>Upload Student Result CSV File Here</h1>
         </div>
 
-        <form accept-charset="UTF-8" action="https://getform.io/f/{your-form-endpoint-goes-here}" method="POST"  target="_blank">
+        <form accept-charset="UTF-8" action="/result-upload" method="POST" enctype="multipart/form-data">
           
           <div class="form-group">
-            <label for="exampleFormControlSelect1">Select Year</label>
-            <select class="form-control" id="exampleFormControlSelect1" name="platform" required="required">
-                <option>Please choose Year</option>
-                <option>1st Year</option>
-                <option>2nd Year</option>
-                <option>3rd Year</option>
-            </select>
+            <b style="color: red;">{{ error }}</b>
           </div>
           
           <div class="form-group mt-3">

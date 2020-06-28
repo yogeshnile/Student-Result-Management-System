@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, session, redirect, flash
 from flask_sqlalchemy import SQLAlchemy
 import json
 import pymysql
-import os
+import pandas as pd
 from datetime import datetime
 
 app = Flask(__name__)
@@ -138,7 +138,7 @@ def result():
 
 @app.route('/dashboard', methods=['GET','POST'])
 def dashboard():
-    if ('user' in session and session['user'] == 'admin'):
+    if ('user' in session and session['user'] == params['username']):
         return render_template('dashboard.html')
 
     if request.method == 'POST':
@@ -150,6 +150,50 @@ def dashboard():
             return render_template('dashboard.html')
     else:
         return render_template('login.html')
+
+@app.route('/result-upload', methods=['GET','POST'])
+def file_upload():
+    if ('user' in session and session['user'] == params['username']):
+        if request.method == 'POST':
+            f = request.files['file']
+            if f.filename == '':
+                error = 'File not selected'
+                return render_template('404.html', error = error)
+            else:
+                df = pd.read_csv(f)
+                for i in range(df.shape[0]):
+                    rollno = df.loc[i, "roll_no"]
+                    rollno = int(rollno.item())
+                    name = df.loc[i, "st_name"]
+                    enroll = df.loc[i, "enrollment_no"]
+                    semester = df.loc[i, "semester"]
+                    semester = int(semester.item())
+                    sub1 = df.loc[i, "sub1"]
+                    sub1 = int(sub1.item())
+                    sub2 = df.loc[i, "sub2"]
+                    sub2 = int(sub2.item())
+                    sub3 = df.loc[i, "sub3"]
+                    sub3 = int(sub3.item())
+                    sub4 = df.loc[i, "sub4"]
+                    sub4 = int(sub4.item())
+                    sub5 = df.loc[i, "sub5"]
+                    sub5 = int(sub5.item())
+                    sub6 = df.loc[i, "sub6"]
+                    sub6 = int(sub6.item())
+
+                    if semester == 1 or semester == 2:
+                        entry = First_year(roll_no=rollno,st_name=name,enrollment_no=enroll,semester=semester,sub1=sub1,sub2=sub2,sub3=sub3,sub4=sub4,sub5=sub5,sub6=sub6,date=datetime.now())
+                    elif semester == 3 or semester == 4:
+                        entry = Second_year(roll_no=rollno,st_name=name,enrollment_no=enroll,semester=semester,sub1=sub1,sub2=sub2,sub3=sub3,sub4=sub4,sub5=sub5,sub6=sub6,date=datetime.now())
+                    else:
+                        entry = Third_year(roll_no=rollno,st_name=name,enrollment_no=enroll,semester=semester,sub1=sub1,sub2=sub2,sub3=sub3,sub4=sub4,sub5=sub5,sub6=sub6,date=datetime.now())
+
+                    db.session.add(entry)
+                    db.session.commit()
+                passing = "Data Updated Successfully"
+                return render_template('dashboard.html', error = passing)
+    else:
+        return redirect('/dashboard')
 
 @app.route('/logout')
 def logout():

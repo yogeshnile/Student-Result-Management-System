@@ -3,7 +3,8 @@
     {
         "local_server":"True",
         "local_uri":"mysql+pymysql://root:@localhost/srms",
-        "prod_uri":"mysql+pymysql://root:@localhost/srms"
+        "prod_uri":"mysql+pymysql://root:@localhost/srms",
+        "username":"admin"
     }
 
 }
