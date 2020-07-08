@@ -7,6 +7,8 @@ In this Repo I developed a Student Result declaration system using Flaskapp.
 # Technology used in Project :hotsprings:
 <img target="_blank" src="https://github.com/yogeshnile/technology/blob/master/pandas.png" width="300">   <img target="_blank" src="https://github.com/yogeshnile/technology/blob/master/Flask.png" width="300">    <img target="_blank" src="https://github.com/yogeshnile/technology/blob/master/flask-sqlalchemy.png" width="400">       <img target="_blank" src="https://github.com/yogeshnile/technology/blob/master/pymysql.png" width="400">   
 
+## ScreenShot :camera_flash:
+
 # Directory Tree :cactus:
 ```bash
 .
@@ -365,3 +367,7 @@ Known on internet as **Yogesh Nile**
 ## Email Me :e-mail:
 
 [<img target="_blank" src="https://img.icons8.com/bubbles/100/000000/secured-letter.png" title="Mail me">](mailto:yogeshnile.work4u@gmail.com)
+
+# Credit
+
+ - On this repo I am use free html css templetes available on online. shout out for their wonderful work
