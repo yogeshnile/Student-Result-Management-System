@@ -16,7 +16,13 @@ In this Repo I developed a Student Result declaration system using Flaskapp.
   - Hurray! That's it.
 
 
-## ScreenShot :camera_flash:
+# ScreenShot :camera_flash:
+![](https://github.com/yogeshnile/Student-Result-Management-System/blob/master/Images/1.png)
+![](https://github.com/yogeshnile/Student-Result-Management-System/blob/master/Images/2.png)
+![](https://github.com/yogeshnile/Student-Result-Management-System/blob/master/Images/3.png)
+![](https://github.com/yogeshnile/Student-Result-Management-System/blob/master/Images/4.png)
+![](https://github.com/yogeshnile/Student-Result-Management-System/blob/master/Images/5.png)
+![](https://github.com/yogeshnile/Student-Result-Management-System/blob/master/Images/6.png)
 
 # Directory Tree :cactus:
 ```bash
