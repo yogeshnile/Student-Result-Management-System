@@ -7,6 +7,15 @@ In this Repo I developed a Student Result declaration system using Flaskapp.
 # Technology used in Project :hotsprings:
 <img target="_blank" src="https://github.com/yogeshnile/technology/blob/master/pandas.png" width="300">   <img target="_blank" src="https://github.com/yogeshnile/technology/blob/master/Flask.png" width="300">    <img target="_blank" src="https://github.com/yogeshnile/technology/blob/master/flask-sqlalchemy.png" width="400">       <img target="_blank" src="https://github.com/yogeshnile/technology/blob/master/pymysql.png" width="400">   
 
+# How to run the project? :thinking:
+  - Install all the libraries mentioned in the above.
+  - Clone this repository in your local system.
+  - upload [srms.sql](https://github.com/yogeshnile/Student-Result-Management-System/blob/master/srms.sql) file in mysql on your system.
+  - Open the terminal from your project directory and run the command python main.py.
+  - Go to your browser and type http://127.0.0.1:5000/ in the address bar.
+  - Hurray! That's it.
+
+
 ## ScreenShot :camera_flash:
 
 # Directory Tree :cactus:
